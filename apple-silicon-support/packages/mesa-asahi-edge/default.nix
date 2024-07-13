@@ -9,9 +9,6 @@
 ((pkgs.callPackage ./vendor { OpenGL = null; Xplugin = null; }).override {
   galliumDrivers = [ "swrast" "asahi" ];
   vulkanDrivers = [ "swrast" ];
-  enableGalliumNine = false;
-  # libclc and other OpenCL components are needed for geometry shader support on Apple Silicon
-  enableOpenCL = true;
 }).overrideAttrs (oldAttrs: {
   # version must be the same length (i.e. no unstable or date)
   # so that system.replaceRuntimeDependencies can work
